@@ -1,0 +1,189 @@
+===============================
+Exercise 1: Basic Git Workflow
+===============================
+
+# 1. Create a new directory and initialize Git
+$ mkdir git-practice
+$ cd git-practice
+$ git init
+Initialized empty Git repository in /git-practice/.git/
+
+# 2. Create a README.md file
+$ echo "# Git Practice Repo" > README.md
+
+# 3. Add and commit the file
+$ git add README.md
+$ git commit -m "Initial commit with README"
+[main (root-commit) a1b2c3d] Initial commit with README
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+# 4. Make changes and commit again
+$ echo "This repository is for learning Git basics." >> README.md
+$ git add README.md
+$ git commit -m "Update README with description"
+[main d4e5f6g] Update README with description
+ 1 file changed, 1 insertion(+)
+
+# 5. View commit history
+$ git log --oneline
+d4e5f6g Update README with description
+a1b2c3d Initial commit with README
+
+
+=================================
+Exercise 2: Branching and Merging
+=================================
+
+# 1. Create a new branch called "feature"
+$ git branch feature
+
+# 2. Switch to feature branch
+$ git checkout feature
+Switched to branch 'feature'
+
+# 3. Add new files in the feature branch
+$ echo "Feature work started" > feature.txt
+$ git add feature.txt
+$ git commit -m "Add feature file"
+[feature h7i8j9k] Add feature file
+ 1 file changed, 1 insertion(+)
+ create mode 100644 feature.txt
+
+# 4. Switch back to main branch
+$ git checkout main
+Switched to branch 'main'
+
+# 5. Merge feature branch into main
+$ git merge feature
+Updating d4e5f6g..h7i8j9k
+Fast-forward
+ feature.txt | 1 +
+ 1 file changed, 1 insertion(+)
+
+# 6. Delete the feature branch
+$ git branch -d feature
+Deleted branch feature (was h7i8j9k).
+
+
+===============================
+Exercise 3: Conflict Resolution
+===============================
+
+# 1. Create two branches from main
+$ git branch branchA
+$ git branch branchB
+
+# 2. Modify the same line in branchA
+$ git checkout branchA
+Switched to branch 'branchA'
+$ echo "Line from branch A" > conflict.txt
+$ git add conflict.txt
+$ git commit -m "Modify conflict file in branchA"
+[branchA l1m2n3o] Modify conflict file in branchA
+
+# 3. Modify the same line in branchB
+$ git checkout branchB
+Switched to branch 'branchB'
+$ echo "Line from branch B" > conflict.txt
+$ git add conflict.txt
+$ git commit -m "Modify conflict file in branchB"
+[branchB p4q5r6s] Modify conflict file in branchB
+
+# 4. Merge branchA into main
+$ git checkout main
+Switched to branch 'main'
+$ git merge branchA
+Updating h7i8j9k..l1m2n3o
+Fast-forward
+ conflict.txt | 1 +
+
+# 5. Attempt to merge branchB (conflict)
+$ git merge branchB
+Auto-merging conflict.txt
+CONFLICT (content): Merge conflict in conflict.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+# 6. Resolve conflict manually
+# (Edit conflict.txt and keep desired content)
+
+$ git add conflict.txt
+$ git commit -m "Resolve merge conflict between branchA and branchB"
+[main t7u8v9w] Resolve merge conflict between branchA and branchB
+
+
+================================
+Exercise 4: GitHub Collaboration
+================================
+
+# 1. Fork a repository on GitHub (done via browser)
+
+# 2. Clone it to local machine
+$ git clone https://github.com/your-username/sample-repo.git
+Cloning into 'sample-repo'...
+remote: Enumerating objects: 20, done.
+remote: Counting objects: 100% (20/20), done.
+Receiving objects: 100% (20/20), done.
+
+$ cd sample-repo
+
+# 3. Create a new branch
+$ git checkout -b improve-readme
+Switched to a new branch 'improve-readme'
+
+# 4. Make changes and push to fork
+$ echo "Additional contribution details" >> README.md
+$ git add README.md
+$ git commit -m "Improve README documentation"
+[improve-readme x1y2z3a] Improve README documentation
+
+$ git push origin improve-readme
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+To https://github.com/your-username/sample-repo.git
+ * [new branch] improve-readme -> improve-readme
+
+# 5. Create Pull Request
+# (Done via GitHub UI)
+# Output: "Pull request successfully created"
+
+
+===============================
+Exercise 5: Advanced Workflow
+===============================
+
+# 1. Initialize a repository with multiple files
+$ mkdir advanced-repo
+$ cd advanced-repo
+$ git init
+Initialized empty Git repository in /advanced-repo/.git/
+
+$ touch app.js config.json notes.txt
+
+# 2. Create a .gitignore file
+$ echo "node_modules/" > .gitignore
+$ echo "*.log" >> .gitignore
+
+$ git add .
+$ git commit -m "Initial project setup with gitignore"
+[main b2c3d4e] Initial project setup with gitignore
+
+# 3. Use git stash to save work in progress
+$ echo "Temporary work" >> app.js
+$ git stash
+Saved working directory and index state WIP on main: b2c3d4e Initial project setup with gitignore
+
+$ git stash list
+stash@{0}: WIP on main: b2c3d4e Initial project setup with gitignore
+
+# 4. Create and tag a release
+$ git tag -a v1.0 -m "First stable release"
+$ git tag
+v1.0
+
+# 5. Push everything to GitHub including tags
+$ git remote add origin https://github.com/your-username/advanced-repo.git
+$ git push origin main
+$ git push origin --tags
+To https://github.com/your-username/advanced-repo.git
+ * [new tag] v1.0 -> v1.0

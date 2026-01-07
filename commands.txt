@@ -1,0 +1,54 @@
+Basic File & Directory Commands
+
+pwd                 # Show current directory
+ls                  # List files
+ls -l               # Long list
+ls -a               # Show hidden files
+cd directory_name   # Change directory
+cd ..               # Move one directory up
+cd ~                # Go to home directory
+mkdir folder        # Create directory
+rmdir folder        # Delete empty directory
+
+
+touch file.txt              # Create empty file
+cat file.txt                # View file content
+less file.txt               # View file (scrollable)
+more file.txt               # View file page by page
+cp file1 file2               # Copy file
+cp -r dir1 dir2               # Copy directory
+mv file newname               # Rename or move file
+rm file.txt                   # Delete file
+rm -r folder                  # Delete folder
+
+
+
+chmod 755 file.txt            # Change permissions
+chmod +x script.sh            # Make executable
+chown user file.txt           # Change owner
+chown user:group file.txt     # Change owner & group
+ls -l                         # View permissions
+
+
+find . -name file.txt         # Find file
+grep "word" file.txt          # Search word in file
+grep -r "word" folder         # Recursive search
+
+
+
+sudo apt update               # Update package list
+sudo apt upgrade              # Upgrade packages
+sudo apt install package      # Install package
+sudo apt remove package       # Remove package
+
+
+command > file.txt            # Output to file
+command >> file.txt           # Append output
+command < file.txt            # Input from file
+command1 | command2           # Pipe output
+
+
+clear                         # Clear terminal
+history                       # Command history
+exit                          # Exit terminal
+
