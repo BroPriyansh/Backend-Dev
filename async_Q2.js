@@ -36,7 +36,7 @@ const checkSubscription = (user) => {
     });
 }
 
-const authenticateUser = async (username) => {
+const Consumer = async (username) => {
     try {
         const user = await getUser(username);
         const accessMessage = await checkSubscription(user);
@@ -47,4 +47,4 @@ const authenticateUser = async (username) => {
     }
 };
 
-authenticateUser("Rahul");
+Consumer("Rahul");
