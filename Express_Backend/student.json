@@ -1,0 +1,5 @@
+[
+  { "id": 1, "name": "Alice", "branch": "Computer Science" },
+  { "id": 2, "name": "Bob", "branch": "Electrical Engineering" },
+  { "id": 3, "name": "Charlie", "branch": "Mechanical Engineering" }
+]
