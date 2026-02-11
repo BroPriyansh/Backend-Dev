@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form</title>
+</head>
+<body>
+
+    <h2>User Form</h2>
+
+    <% if (success) { %>
+        <p style="color:green;">Data saved successfully!</p>
+    <% } %>
+
+        <form action="/submit" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="branch">Branch:</label>
+            <select id="branch" name="branch" required>
+                <option value="">Select Branch</option>
+                <option value="CSE">CSE</option>
+                <option value="ECE">ECE</option>
+                <option value="MECH">MECH</option>
+            </select><br><br>
+            <button type="submit">Submit</button>
+        </form>
+
+</body>
+</html>
